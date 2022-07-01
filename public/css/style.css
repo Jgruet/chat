@@ -1,0 +1,373 @@
+@import url("./lib/bootstrap-grid.min.css");
+
+@font-face {
+    font-family: "lifecraft";
+    src: url("./fonts/lifecraft/LifeCraft_Font.ttf") format("opentype");
+}
+@font-face {
+    font-family: "Cinzel";
+    src: url("./fonts/Cinzel/Cinzel-VariableFont_wght.ttf") format("opentype");
+}
+* {
+    margin: 0;
+    padding: 0;
+    cursor: url(./img/icon/cursor32.webp), pointer;
+}
+*::-webkit-scrollbar {
+    width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+    background: none;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #00000052;
+    border-radius: 20px;
+    border: none;
+}
+body {
+    background-image: url(./img/background/outdoor.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: "Cinzel";
+    font-weight: 400;
+    height: 100vh;
+    color: #ffffff;
+}
+body[data-channel="main"] {
+    background-image: url(./img/background/indoor.jpg);
+}
+body[data-channel="bar"] {
+    background-image: url(./img/background/bar.jpg);
+}
+body[data-channel="kitchen"] {
+    background-image: url(./img/background/outdoor.jpg);
+}
+body[data-channel="cekkar"] {
+    background-image: url(./img/background/indoor.jpg);
+}
+body[data-channel="bedroom1"],
+body[data-channel="bedroom2"],
+body[data-channel="bedroom3"] {
+    background-image: url(./img/background/bedroom.jpg);
+}
+main {
+    height: 100vh;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+.welcome-panel {
+    text-align: center;
+    height: 50%;
+    position: relative;
+}
+.welcome-panel {
+    background: #00000063;
+}
+.welcome-panel.disabled,
+.chat-box.disabled {
+    display: none;
+}
+.welcome-panel img {
+    max-height: 250px;
+}
+.welcome-panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    border-style: solid;
+    border-image-source: url(./img/texture/border.png);
+    border-image-repeat: stretch;
+    border-image-slice: 16 16 16 16;
+    border-image-width: 20px;
+    border-width: 8px;
+    background-clip: content-box;
+}
+.chat-box .userlist ul li[data-action="writting"]::after {
+    content: url(./img/icon/feather.svg);
+    position: absolute;
+    transform: translateX(0) rotate(0deg);
+    animation: 3s writting infinite;
+}
+@keyframes writting {
+    0% {
+        transform: translateX(0) rotate(0deg);
+    }
+    12% {
+        transform: rotate(15deg);
+    }
+    25% {
+        transform: translateX(10px) rotate(0deg);
+    }
+    40% {
+        transform: translateX(20px) rotate(15deg);
+    }
+    50% {
+        transform: translateX(0) rotate(0deg);
+    }
+    65% {
+        transform: rotate(10deg);
+    }
+    76% {
+        transform: translateX(10px) rotate(20deg);
+    }
+    100% {
+        transform: translateX(20px) rotate(0deg);
+    }
+}
+.welcome-panel h1 {
+    font-family: "lifecraft";
+    background: url(./img/texture/gold.jpg) no-repeat center center;
+    background-size: cover;
+    color: #fff;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    font-size: 5em;
+    font-weight: 400;
+    text-align: center;
+    -webkit-text-stroke: 1px #44290d;
+}
+#disconnect.visible{
+    display: block;
+}
+#disconnect {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    display: none;
+}
+#documentation {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+}
+#disconnect button, #documentation button{
+    background: none;
+    height: 50px;
+    width: 220px;
+    border-style: solid;
+    border-image-source: url(./img/texture/border.png);
+    border-image-repeat: stretch;
+    border-image-slice: 16 16 16 16;
+    border-image-width: 20px;
+    font-family: 'Cinzel';
+    border-width: 15px;
+    letter-spacing: 1px;
+}
+#disconnect button, #documentation button a{
+    text-decoration: none;
+    color: #ffd86a;
+}
+#disconnect button::before, #documentation button::before{
+    background: url(./img/background/bg.jpg);
+    content: "";
+    background-size: cover;
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    bottom: 8px;
+    left: 8px;
+    z-index: -1;
+    opacity: 0.75;
+}
+.channels,
+.messages,
+.userlist {
+    position: relative;
+}
+.channels:before,
+.messages:before,
+.userlist::before {
+    content: "";
+    background-image: url(./img/texture/scroll.jpg);
+    background-size: cover;
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    bottom: -8px;
+    left: -8px;
+    z-index: -1;
+    opacity: 0.75;
+}
+.connection-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 150px;
+    flex-direction: column;
+}
+.input {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+.input button {
+    background: url(./img/texture/gold.jpg);
+    border: 2px solid #44290d;
+    padding: 10px;
+    width: 100%;
+}
+.input input {
+    border-style: none;
+    background: #00000052;
+    margin-bottom: 15px;
+    height: 1.5rem;
+    color: white;
+    text-align: center;
+    font-family: "Cinzel";
+    font-size: 1rem;
+    padding: 10px 5px;
+}
+.input input:-webkit-autofill,
+.input input:-webkit-autofill:hover,
+.input input:-webkit-autofill:focus,
+.input input:-webkit-autofill:active {
+    -webkit-box-shadow: none;
+}
+#login {
+    font-family: "Cinzel";
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/**
+* chatbox
+**/
+.chat-box {
+    width: 100%;
+    justify-content: space-between;
+    height: 70vh;
+    color: black;
+}
+
+.chat-box h2 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+.chat-box ul {
+    list-style: none;
+}
+.chat-box .framed {
+    border-style: solid;
+    border-image-source: url(./img/texture/border.png);
+    border-image-repeat: stretch;
+    border-image-slice: 16 16 16 16;
+    border-image-width: 20px;
+    border-width: 15px;
+    height: 100%;
+}
+
+.messages {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+textarea,
+#send-message {
+    width: 100%;
+    height: 100%;
+    background: #0000004d;
+    border: none;
+}
+
+#send-message {
+    background: url(./img/texture/wood-3.jpg);
+    background-size: 250%;
+    border: none;
+    padding: 10px;
+    color: white;
+    font-family: "Cinzel";
+    text-shadow: 2px 2px 13px black;
+    width: 100%;
+    font-weight: bold;
+    font-size: 1.5em;
+    border-radius: 7px;
+    box-shadow: 0px 0px 10px #494949;
+}
+
+#messagesTpl {
+    width: 100%;
+}
+.time {
+    text-align: end;
+}
+.author {
+    font-weight: bold;
+}
+.chat-box .messages .row {
+    width: 100%;
+}
+.chat-box .channel-name {
+    position: absolute;
+    width: fit-content;
+    padding: 10px 40px;
+    background: url(./img/texture/wood-3.jpg);
+    background-size: cover;
+    height: fit-content;
+    transform: translateY(-60%);
+    border-radius: 6px;
+    color: #ffffff;
+    box-shadow: 0px 0px 10px #494949;
+    text-shadow: 2px 2px 13px black;
+}
+.chat-box .channel-name h2 {
+    margin: 0;
+}
+.read-box {
+    padding-top: 25px;
+    height: 85%;
+    overflow-y: scroll;
+}
+
+.write-box{
+    height: 10%;
+}
+/**
+* fin chatbox
+**/
+
+/**
+* audio
+*/
+#audio {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+}
+#audio audio {
+    display: none;
+}
+#audio img {
+    border-style: solid;
+    border-image-source: url(./img/texture/border.png);
+    border-image-repeat: stretch;
+    border-image-slice: 15 15 15 15;
+    border-image-width: 20px;
+    border-width: 8px;
+    position: relative;
+}
+#audio img.disabled {
+    filter: grayscale(1);
+}
+
+/* list channel */
+.channels li.active {
+    font-weight: bold;
+}
+.channels li.unread::after{
+    content:url(./img/icon/mail.png);
+    height: 19px;
+}
+.channels li{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}

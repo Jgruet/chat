@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="stylesheet"
+            href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css"
+        />
+        <title>Documentation</title>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Documentation</h1>
+            <article>
+                <h2>Avant-propos</h2>
+                <p>
+                    Ce projet a été développé pendant une semaine de formation
+                    sur socket.io
+                </p>
+                <p>
+                    Pour lancer le projet : <br />
+                    <kbd>npm run dev</kbd> ou <kbd>npm run start</kbd>
+                </p>
+            </article>
+            <section>
+                <h2>Diagrammes</h2>
+                <details>
+                    <summary>Cas d'utilisation</summary>
+                    <p>Voici les différentes fonctionnalités développées disponibles sur le projet.</p>
+                    <figure>
+                        <img
+                            src="/public/css/img/diagrammes/use-case3.drawio.png"
+                            alt="Cas d'utilisation"
+                        />
+                        <figcaption>
+                            Diagramme réalisé sur draw.io
+                        </figcaption>
+                    </figure>
+                    <p>Lecture d'un cas d'utilisation :</p>
+                    <p>Un utilisateur doit pouvoir envoyer un message. Pour se faire il doit d'abord avoir rejoint un canal, et a dû se connecter au préalable</p>
+                </details>
+                <details>
+                    <summary>Diagramme de classes</summary>
+                    <p>Le projet est développé en POO. Le diagramme de classes nous permet de voir les différentes briques logicielles qui seront ammenées à intéragir entre elles.</p>
+                    <figure>
+                        <img
+                            src="/public/css/img/diagrammes/class.drawio.png"
+                            alt="Diagramme de classes"
+                        />
+                        <figcaption>
+                            Diagramme réalisé sur draw.io
+                        </figcaption>
+                    </figure>
+                    <p><u>Explication du fonctionnement Front-end</u></p>
+                    <p>2 classes sont présentes pour gérer le front du projet. <strong>UserInface</strong> écoute les actions de l'utilisateur et créé des évènement personnalisés qui sont à leur tour écoutés par <strong>ClientChat</strong>. <strong>ClientChat</strong> se charge ensuite d'émettre vers la couche Back-end.</p>
+                    <p><strong>ClientChat</strong> reçoit les évènement emit par le Back-end et grâce à la <abbr title="Une classe instanciée à l'interieur d'une autre classe" data-tooltip="Une classe instanciée à l'interieur d'une autre classe">composition</abbr>, fait réagir d'interface utilisateur.</p>
+                </details>
+                <details>
+                    <summary>Diagramme de séquence</summary>
+                    <p>Les diagrammes de séquences détaillent le parcours de l'information entre les différentes briques logicielles de l'application. <br>
+                    En général, on retrouve un diagramme de séquence par cas d'utilisation.</p>
+                    <figure>
+                        <img
+                            src="/public/css/img/diagrammes/sequence2.drawio.png"
+                            alt="Minimal landscape"
+                        />
+                        <figcaption>
+                            Diagramme réalisé sur draw.io
+                        </figcaption>
+                    </figure>
+                </details>
+            </section>
+            <section>
+                <h2>Stack technique</h2>
+                <details>
+                    <summary>Back-end</summary>
+                    <ul>
+                        <li>Serveur node.js v16.14 - sans express.js</li>
+                        <li>Socket.io</li>
+                        <li>JS natif</li>
+                        <li>Architecture POO</li>
+                    </ul>
+                </details>
+                <details>
+                    <summary>Front-end</summary>
+                    <ul>
+                        <li>JS natif</li>
+                        <li>Bootstrap.css pour l'applicaton</li>
+                        <li>Pico.css pour la documentation</li>
+                        <li>Ressources graphiques : <a href="https://wowpedia.fandom.com/" target="_blank"  rel="noopener noreferrer">wowpedia</a>, <a href="http://fr.wowhead.com" target="_blank" rel="noopener noreferrer">wowhead</a></li>
+                    </ul>
+                </details>
+            </section>
+            <section>
+                <h2>Compétences développées</h2>
+                    <ul>
+                        <li>Mettre en place une communication bilatérale client - serveur grâce à socket.io</li>
+                        <li>Coder en programmation orientée objet en JavaScript</li>
+                        <li>Utiliser les conventions JavaScript ES2015+</li>
+                        <li>Créer une <abbr title="Une plume s'agite pour montrer qu'un utilisateur est entrain d'écrire un message" data-tooltip="Une plume s'agite pour montrer qu'un utilisateur est entrain d'écrire un message">animation</abbr> CSS ex-nihilo</li>
+                        <li>Intégrer des éléments externes pour créer un thème CSS spécifique (border, textures, icones)</li>
+                    </ul>
+            </section>
+        </div>
+    </body>
+</html>

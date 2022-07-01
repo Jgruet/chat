@@ -1,0 +1,17 @@
+{
+  "name": "chat",
+  "version": "1.0.0",
+  "description": "Projet chat avec WebSocket",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "browser-refresh index.js",
+    "start": "node index.js"
+  },
+  "author": "Jonathan",
+  "license": "ISC",
+  "dependencies": {
+    "browser-refresh": "^1.7.3",
+    "socket.io": "^4.5.1"
+  }
+}
