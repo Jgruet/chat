@@ -6,6 +6,8 @@ Ce projet a été développé pendant une semaine de formation sur socket.io
 Pour lancer le projet :  
 ```npm run dev``` ou ```npm run start```
 
+Voir la démo en ligne : [cliquez ici](http://chat.jonathangruet.com)
+
 ______________________
 ## Diagrammes
 
@@ -55,7 +57,7 @@ En général, on retrouve un diagramme de séquence par cas d'utilisation.
 ### Front-end
 
 *   JS natif
-*   Bootstrap.css pour l'applicaton
+*   ~~Bootstrap.css pour l'application~~ CSS natif
 *   Pico.css pour la documentation
 *   Ressources graphiques : [wowpedia](https://wowpedia.fandom.com/), [wowhead](http://fr.wowhead.com)
 

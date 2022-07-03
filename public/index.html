@@ -4,91 +4,90 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="shortcut icon" type="image/jpg" href="./css/img/icon/mail.png" />
+        <link
+            rel="shortcut icon"
+            type="image/jpg"
+            href="./css/img/icon/mail.png"
+        />
         <title>Lion's pride Inn</title>
         <link rel="stylesheet" href="/public/css/style.css" />
     </head>
     <body>
-        <main class="container">
+        <main id="grid">
             <div id="documentation">
-                <button><a href="/documentation" target="_blank">Documentation</a></button>
+                <button>
+                    <a href="/documentation" target="_blank">Documentation</a>
+                </button>
             </div>
-            <div class="row welcome-panel">
-                <div class="col-12 p-4">
-                    <div class="row">
-                        <div class="col-12">
-                            <img src="public/css/img/lion.png" alt="lion" />
-                            <hgroup>
-                                <h1>Lions pride Inn</h1>
-                                <h2>Brew & fellowship</h2>
-                                <small
-                                    >A node.js chat application powered by
-                                    socket.io</small
-                                >
-                            </hgroup>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-12 connection-form">
-                            <p>Your name</p>
-                            <div class="input">
-                                <input type="text" id="username" />
-                                <button id="login">Enter</button>
-                            </div>
+            <div class="welcome-panel">
+                <div class="framed inner-welcome-panel">
+                    <img src="public/css/img/lion.png" alt="lion" width="250" />
+                    <hgroup>
+                        <h1>Lions pride Inn</h1>
+                        <h2>Brew & fellowship</h2>
+                        <small
+                            >A node.js chat application powered by socket.io</small
+                        >
+                    </hgroup>
+                    <div class="connection-form">
+                        <p>Your name</p>
+                        <div class="input">
+                            <input type="text" id="username" />
+                            <button id="login">Enter</button>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="row chat-box disabled">
-                <div class="framed col-12 col-lg-2 channels">
-                    <h2>Rooms</h2>
-                    <ul></ul>
-                </div>
-                <div class="framed col-12 col-lg-7 messages">
-                    <div class="channel-name">
-                        <h2></h2>
-                    </div>
-                    <div class="row read-box">
-                        <div class="col-12">
-                            <div id="listingMessages"></div>
-                        </div>
-                        <template id="messagesTpl">
-                            <div class="row">
-                                <div class="col-6 author"></div>
-                                <div class="col-6 time"><small></small></div>
-                                <div class="col-12 message"></div>
-                            </div>
-                        </template>
-                    </div>
-                    <div class="row write-box">
-                        <div class="col-12 col-lg-10">
-                            <textarea
-                                name="message"
-                                id="message"
-                                rows="4"
-                            ></textarea>
-                        </div>
-                        <div class="col-12 col-lg-2">
-                            <button id="send-message">Send</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="framed col-12 col-lg-2 userlist">
-                    <h2>Fellows</h2>
-                    <ul></ul>
-                </div>
-            </div>
-            <div id="disconnect">
-                <button>Disconnect</button>
-            </div>
-            <div id="audio">
-                <audio controls autoplay>
-                    <source src="/public/music/taverns-music.mp3" type="audio/mpeg" />
-                    Your browser does not support the audio element.
-                </audio>
-                <img class="disabled" src="/public/css/img/icon/divinehymn.jpg" alt="music control icon">
             </div>
 
+            <div class="chat framed channels disabled">
+                <h2>Rooms</h2>
+                <ul></ul>
+            </div>
+            <div class="chat framed messages disabled">
+                <div class="channel-name">
+                    <h2></h2>
+                </div>
+                <div class="read-box">
+                    <div id="listingMessages"></div>
+                    <template id="messagesTpl">
+                        <div class="message">
+                            <div class="message-info">
+                                <div class="author"></div>
+                                <div class="time"><small></small></div>
+                            </div>
+                            <div class="message-content"></div>
+                        </div>
+                    </template>
+                </div>
+                <div class="write-box">
+                    <textarea name="message" id="message" rows="4"></textarea>
+                    <button id="send-message">Send</button>
+                </div>
+            </div>
+            <div class="chat framed userlist disabled">
+                <h2>Fellows</h2>
+                <ul></ul>
+            </div>
+
+            <div id="bottom">
+                <div id="disconnect">
+                    <button>Disconnect</button>
+                </div>
+                <div id="audio">
+                    <audio controls autoplay>
+                        <source
+                            src="/public/music/taverns-music.mp3"
+                            type="audio/mpeg"
+                        />
+                        Your browser does not support the audio element.
+                    </audio>
+                    <img
+                        class="disabled"
+                        src="/public/css/img/icon/divinehymn.jpg"
+                        alt="music control icon"
+                    />
+                </div>
+            </div>
         </main>
 
         <script src="/socket.io/socket.io.js"></script>

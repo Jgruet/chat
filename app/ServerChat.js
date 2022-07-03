@@ -151,17 +151,19 @@ module.exports = class ServerChat {
     }
 
     userTypingMessage(socket, status) {
-        // on met à jours le statut de l'utilisateur
-        socket.user.isTyping = status;
-        
-        // on envoi l'information aux utilisateurs du même salon
-        this.io.in(socket.user.channel).emit(
-            'server:user:typing_list',
-            // on filtre les utilisateurs du channel en train de saisir
-            this.users.filter(user => 
-                (user.channel == socket.user.channel)
-            )
-         );
+        if(socket.user != null){
+            // on met à jours le statut de l'utilisateur
+            socket.user.isTyping = status;
+            
+            // on envoi l'information aux utilisateurs du même salon
+            this.io.in(socket.user.channel).emit(
+                'server:user:typing_list',
+                // on filtre les utilisateurs du channel en train de saisir
+                this.users.filter(user => 
+                    (user.channel == socket.user.channel)
+                )
+             );
+        }
      }
      
 };

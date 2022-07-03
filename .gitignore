@@ -1,2 +1,6 @@
 notes.txt
 node_modules
+public/scripts/_ClientChat.js
+public/scripts/_UserInterface.js
+public/_index.html
+public/css/_style.css
