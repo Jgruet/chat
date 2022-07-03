@@ -384,7 +384,10 @@ textarea {
     justify-content: space-between;
     margin-bottom: 15px;
 }
-
+.channels li.unread::after {
+    content: url(./img/icon/mail.png);
+    height: 19px;
+}
 .message{
     display: flex;
     flex-direction: column;
