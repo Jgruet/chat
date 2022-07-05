@@ -53,7 +53,6 @@ export default class ClientChat {
             this.socket.emit("client:channel:change", event.detail.channel_in, event.detail.channel_out);
         });
         document.addEventListener("local:message:typing", (event) => {
-            console.log("event parti");
             this.socket.emit("client:message:typing", event.detail.status);
         });
     }

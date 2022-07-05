@@ -29,10 +29,30 @@ export default class UserInterface {
             .addEventListener("click", this.userDisconnect);
         document
             .querySelector("textarea")
-            .addEventListener("keyup", this.userTyping);
+            .addEventListener("keyup", function (e) {
+                if (e.keyCode != 13) {
+                    this.userTyping();
+                }
+            }.bind(this));
         document
             .querySelector("#send-message")
             .addEventListener("click", this.sendMessage);
+        document
+            .querySelector("#send-message")
+            .addEventListener("click", this.sendMessage);
+        document
+            .querySelector("#message")
+            .addEventListener("keydown", function (e) {
+                if (e.keyCode === 13) {
+                    // Ctrl + Enter
+                    if (e.ctrlKey) {
+                        e.target.value += "\n";
+                        // Enter
+                    } else {
+                        this.sendMessage();
+                    }
+                }
+            }.bind(this));
     }
 
     connectUser(username) {
@@ -50,7 +70,7 @@ export default class UserInterface {
             userList.innerHTML = "";
             users.map((user) => {
                 let li = document.createElement("li");
-                li.innerHTML = user.username.replace( /(<([^>]+)>)/ig, '');
+                li.innerHTML = user.username.replace(/(<([^>]+)>)/gi, "");
                 li.dataset.id = user.id;
                 userList.appendChild(li);
             });
@@ -64,7 +84,7 @@ export default class UserInterface {
         window.sessionStorage.removeItem("username");
         document.querySelectorAll(".chat").forEach((element) => {
             element.classList.add("disabled");
-        })
+        });
         document.querySelector(".welcome-panel").classList.remove("disabled");
         document.querySelector("#disconnect").classList.remove("visible");
     }
@@ -73,7 +93,6 @@ export default class UserInterface {
         //document.dispatchEvent(new CustomEvent("local:user:writting"));
         if (this.typing !== true) {
             this.typing = true;
-            console.log("démarrage de saisie");
             document.dispatchEvent(
                 new CustomEvent("local:message:typing", {
                     detail: { status: this.typing },
@@ -86,7 +105,6 @@ export default class UserInterface {
         // on crée un nouveau timer au bout de 3 seondes on changera le statut à false
         this.timerTyping = window.setTimeout(() => {
             this.typing = false;
-            console.log("fin de saisie");
             document.dispatchEvent(
                 new CustomEvent("local:message:typing", {
                     detail: { status: this.typing },
@@ -114,7 +132,6 @@ export default class UserInterface {
         if (channelList) {
             channelList.innerHTML = "";
             channels.map((channel) => {
-                console.log(channel);
                 let li = document.createElement("li");
                 li.innerHTML = channel.displayName;
                 li.dataset.name = channel.name;
@@ -165,9 +182,9 @@ export default class UserInterface {
                 let clone = document.importNode(template.content, true);
                 clone.querySelector(".time small").innerHTML = message.time;
                 clone.querySelector(".author").innerHTML =
-                    message.author.replace( /(<([^>]+)>)/ig, '') + " :";
+                    message.author.replace(/(<([^>]+)>)/gi, "") + " :";
                 clone.querySelector(".message-content").innerHTML =
-                    message.message.replace( /(<([^>]+)>)/ig, '');
+                    message.message.replace(/(<([^>]+)>)/gi, "");
                 document.querySelector("#listingMessages").appendChild(clone);
             });
         }
@@ -195,6 +212,4 @@ export default class UserInterface {
             e.currentTarget.classList.remove("unread");
         });
     }
-
-    
 }
