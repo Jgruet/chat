@@ -156,6 +156,7 @@ export default class UserInterface {
     sendMessage() {
         let message = document.querySelector("#message").value;
         if (message != "") {
+            message = message.replace(/\n/g, '<br>\n');
             // dispatchEvent -> lance l'event (trigger)
             document.dispatchEvent(
                 new CustomEvent("local:message:send", { detail: { message } })
@@ -184,7 +185,7 @@ export default class UserInterface {
                 clone.querySelector(".author").innerHTML =
                     message.author.replace(/(<([^>]+)>)/gi, "") + " :";
                 clone.querySelector(".message-content").innerHTML =
-                    message.message.replace(/(<([^>]+)>)/gi, "");
+                    message.message.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script\s*>/gi, "");
                 document.querySelector("#listingMessages").appendChild(clone);
             });
         }
