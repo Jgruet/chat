@@ -188,6 +188,8 @@ export default class UserInterface {
                     message.message.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script\s*>/gi, "");
                 document.querySelector("#listingMessages").appendChild(clone);
             });
+            document.querySelector("#listingMessages").scrollTop = document.querySelector("#listingMessages").scrollHeight;
+            document.querySelector('.write-box textarea').value = '';
         }
     }
 
