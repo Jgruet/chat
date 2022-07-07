@@ -159,11 +159,11 @@ body[data-channel="bedroom3"] {
 .write-box {
     height: 20%;
     display: flex;
-    color:#ffffff;
 }
 .write-box textarea {
     width: 80%;
     resize: none;
+    color:#ffffff;
 }
 .write-box button {
     width: 20%;
