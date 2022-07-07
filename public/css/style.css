@@ -159,9 +159,11 @@ body[data-channel="bedroom3"] {
 .write-box {
     height: 20%;
     display: flex;
+    color:#ffffff;
 }
 .write-box textarea {
     width: 80%;
+    resize: none;
 }
 .write-box button {
     width: 20%;
@@ -262,7 +264,7 @@ textarea {
         flex-wrap: wrap;
         justify-content: space-evenly;
         max-height: 50px;
-        overflow: overlay;
+        overflow: auto;
     }
     .channels li {
         margin-right: 15px;
@@ -274,7 +276,7 @@ textarea {
         flex-wrap: wrap;
         padding: 15px;
         max-height: 90px;
-        overflow: overlay;
+        overflow: auto;
     }
     .userlist li{
         width: 50%;
@@ -414,7 +416,7 @@ textarea {
     height: calc(80% - 40px);
 }
 #listingMessages{
-    overflow: overlay;
+    overflow: auto;
     max-height: 100%;
 }
 @media screen and (min-width:992px) {
